@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aquatic Center for the Lakes Region</title>
+  <meta name="description" content="The Aquatic Center for the Lakes Region is a nonprofit working to build a new community pool and aquatic center for the Lakes Region of New Hampshire.">
+  <meta property="og:title" content="Aquatic Center for the Lakes Region">
+  <meta property="og:description" content="A nonprofit working to build a new community pool and aquatic center for the Lakes Region of New Hampshire.">
+  <meta property="og:url" content="https://aclakes.org/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b5f8a'/%3E%3Cpath d='M4 13c3 0 3-2.5 6-2.5s3 2.5 6 2.5 3-2.5 6-2.5 3 2.5 6 2.5M4 20c3 0 3-2.5 6-2.5s3 2.5 6 2.5 3-2.5 6-2.5 3 2.5 6 2.5' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --surface: #ffffff;
+      --text: #1b2a35;
+      --muted: #4d6170;
+      --accent: #0b5f8a;
+      --accent-strong: #084a6c;
+      --accent-soft: #e3f0f7;
+      --border: #d7e3ea;
+      --on-accent: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1820;
+        --surface: #13222d;
+        --text: #e4edf2;
+        --muted: #a3b6c3;
+        --accent: #5bb6e3;
+        --accent-strong: #86cbee;
+        --accent-soft: #173244;
+        --border: #24394a;
+        --on-accent: #06212f;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-strong); }
+
+    .wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem; }
+
+    header.hero {
+      background: linear-gradient(160deg, #0b5f8a 0%, #0f7fa8 55%, #2aa3c4 100%);
+      color: #fff;
+      padding: 4.5rem 0 5.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header.hero::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -1px;
+      height: 48px;
+      background: var(--bg);
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 24 C150 0 300 48 450 24 S750 0 900 24 S1100 48 1200 24 V48 H0Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 24 C150 0 300 48 450 24 S750 0 900 24 S1100 48 1200 24 V48 H0Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .8rem;
+      font-weight: 600;
+      opacity: .85;
+      margin: 0 0 .75rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      line-height: 1.12;
+      margin: 0 0 1.25rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+    .vision {
+      font-size: clamp(1.15rem, 3vw, 1.35rem);
+      line-height: 1.5;
+      max-width: 36rem;
+      margin: 0 0 2rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: .8rem 1.4rem;
+      border-radius: .5rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    .btn:hover { background: var(--accent-strong); color: var(--on-accent); }
+    header .btn { background: #fff; color: #0b5f8a; }
+    header .btn:hover { background: #e3f0f7; color: #084a6c; }
+
+    main { padding: 2rem 0 3rem; }
+    section { margin: 0 0 2.75rem; }
+    h2 {
+      font-size: 1.45rem;
+      line-height: 1.25;
+      margin: 0 0 .75rem;
+      color: var(--text);
+    }
+    p { margin: 0 0 1rem; }
+    .muted { color: var(--muted); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: .75rem;
+      padding: 1.5rem;
+    }
+    .callout {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: .5rem;
+      padding: 1.25rem 1.5rem;
+    }
+    .callout h2 { margin-top: 0; }
+
+    ul.status { list-style: none; padding: 0; margin: 0; }
+    ul.status li { padding-left: 1.75rem; position: relative; margin-bottom: .5rem; }
+    ul.status li::before {
+      content: "";
+      position: absolute; left: 0; top: .5em;
+      width: .7rem; height: .7rem; border-radius: 50%;
+      background: var(--accent);
+    }
+    ul.status li.pending::before { background: transparent; border: 2px solid var(--accent); }
+
+    .form { display: grid; gap: 1rem; }
+    .form .row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+    .form label { display: grid; gap: .35rem; font-weight: 600; font-size: .95rem; }
+    .form input, .form select, .form textarea {
+      font: inherit;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: .5rem;
+      padding: .65rem .8rem;
+      width: 100%;
+    }
+    .form textarea { resize: vertical; }
+    .form input:focus, .form select:focus, .form textarea:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+      border-color: var(--accent);
+    }
+    .form button { justify-self: start; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+    .form button:disabled { opacity: .6; cursor: default; }
+    .form-status { margin: 0; min-height: 1.5em; }
+    .form-status.ok { color: #1f7a3d; }
+    .form-status.err { color: #b3261e; }
+    @media (prefers-color-scheme: dark) {
+      .form-status.ok { color: #6fd08c; }
+      .form-status.err { color: #f2918a; }
+    }
+    .hp { position: absolute; left: -9999px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 3rem;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+    footer p { margin: 0 0 .4rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">A community nonprofit</p>
+      <h1>Aquatic Center for the Lakes Region</h1>
+      <p class="vision">Our vision: an aquatic, fitness, and recreational venue that fosters a healthy, safe, and connected Lakes Region.</p>
+      <a class="btn" href="#signup">Join our email list</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>Why we're here</h2>
+      <p>The Lakes Region lost its community pool to a fire. We're a group of local residents working to replace it with a new aquatic center where everyone in the region can learn to swim, stay active, and spend time together.</p>
+      <p>We're open to a site anywhere in New Hampshire's Lakes Region, as defined by the <a href="https://www.lakesrpc.org/">Lakes Region Planning Commission</a>.</p>
+    </section>
+
+    <section>
+      <h2>Our mission</h2>
+      <div class="card">
+        <p style="margin:0">Providing swimming, water safety education, fitness programs, recreational opportunities, and lifelong learning experiences, creating a welcoming environment where individuals and families of all ages and abilities can grow, thrive, and build meaningful connections.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Where things stand</h2>
+      <ul class="status">
+        <li>Incorporated as a nonprofit corporation</li>
+        <li class="pending">Application for 501(c)(3) tax-exempt status in progress</li>
+        <li class="pending">Building a team of volunteers, partners, and supporters</li>
+      </ul>
+    </section>
+
+    <!-- Board of directors: uncomment and fill in once the board is finalized.
+    <section>
+      <h2>Board of directors</h2>
+      <ul>
+        <li><strong>Name</strong>, President</li>
+        <li><strong>Name</strong>, Treasurer</li>
+        <li><strong>Name</strong>, Secretary</li>
+      </ul>
+    </section>
+    -->
+
+    <section class="callout">
+      <h2>Working on this too? Let's join forces.</h2>
+      <p>We know other people in the region care about bringing a pool back. We'd love to hear from you. We'll get further working together than apart.</p>
+      <p style="margin:0"><a href="#contact">Send us a message</a></p>
+    </section>
+
+    <section id="signup">
+      <h2>Join our email list</h2>
+      <p>Get occasional updates on the project, meetings, and ways to help.</p>
+      <!-- MailerLite: replace ACCOUNT_ID and FORM_ID with the values from the form's embed code. -->
+      <form class="card form" id="signup-form" action="https://assets.mailerlite.com/jsonp/ACCOUNT_ID/forms/FORM_ID/subscribe" method="post">
+        <div class="row">
+          <label>Name <span class="muted">(optional)</span>
+            <input type="text" name="fields[name]" autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="fields[email]" autocomplete="email" required>
+          </label>
+        </div>
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
+        <button class="btn" type="submit">Sign up</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="contact">
+      <h2>Contact us</h2>
+      <p>Questions, ideas, want to volunteer, or working on a pool effort of your own? Send us a note.</p>
+      <form class="card form" id="contact-form" name="contact" method="post" action="/thanks.html" data-netlify="true" netlify-honeypot="company">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
+        <div class="row">
+          <label>Name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+        </div>
+        <label>I'm reaching out as
+          <select name="topic">
+            <option>A community member</option>
+            <option>Someone working on a similar effort</option>
+            <option>A potential volunteer</option>
+            <option>A potential partner or donor</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Aquatic Center for the Lakes Region</strong></p>
+      <p>A nonprofit corporation. 501(c)(3) status pending.</p>
+      <p>Lakes Region, New Hampshire</p>
+    </div>
+  </footer>
+
+  <script>
+    function wireForm(id, send, successMsg) {
+      var form = document.getElementById(id);
+      var status = form.querySelector('.form-status');
+      var button = form.querySelector('button[type=submit]');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        button.disabled = true;
+        status.className = 'form-status';
+        status.textContent = 'Sending…';
+        send(form).then(function (ok) {
+          if (!ok) throw new Error();
+          form.reset();
+          status.classList.add('ok');
+          status.textContent = successMsg;
+        }).catch(function () {
+          status.classList.add('err');
+          status.textContent = 'Sorry, something went wrong. Please try again in a moment.';
+        }).finally(function () {
+          button.disabled = false;
+        });
+      });
+    }
+
+    // Netlify Forms: post url-encoded data to the site root.
+    wireForm('contact-form', function (form) {
+      return fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (r) { return r.ok; });
+    }, 'Thanks! Your message was sent. We\'ll be in touch soon.');
+
+    // MailerLite: JSON response with { success: true } on success.
+    wireForm('signup-form', function (form) {
+      return fetch(form.action, { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json(); })
+        .then(function (data) { return data && data.success; });
+    }, 'Thanks for signing up! Check your inbox to confirm your subscription.');
+  </script>
+</body>
+</html>
