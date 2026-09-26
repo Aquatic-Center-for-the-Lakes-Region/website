@@ -228,18 +228,18 @@
     <section id="signup">
       <h2>Join our email list</h2>
       <p>Get occasional updates on the project, meetings, and ways to help.</p>
-      <!-- MailerLite: replace ACCOUNT_ID and FORM_ID with the values from the form's embed code. -->
-      <form class="card form" id="signup-form" action="https://assets.mailerlite.com/jsonp/ACCOUNT_ID/forms/FORM_ID/subscribe" method="post">
+      <form class="card form" id="signup-form" name="signup" method="post" action="/thanks.html" data-netlify="true" netlify-honeypot="company">
+        <input type="hidden" name="form-name" value="signup">
+        <p class="hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
         <div class="row">
           <label>Name <span class="muted">(optional)</span>
-            <input type="text" name="fields[name]" autocomplete="name">
+            <input type="text" name="name" autocomplete="name">
           </label>
           <label>Email
-            <input type="email" name="fields[email]" autocomplete="email" required>
+            <input type="email" name="email" autocomplete="email" required>
           </label>
         </div>
-        <input type="hidden" name="ml-submit" value="1">
-        <input type="hidden" name="anticsrf" value="true">
+        <p class="muted" style="margin:0;font-size:.9rem">By signing up, you agree to receive occasional email updates from the Aquatic Center for the Lakes Region. You can unsubscribe at any time.</p>
         <button class="btn" type="submit">Sign up</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
@@ -286,7 +286,16 @@
   </footer>
 
   <script>
-    function wireForm(id, send, successMsg) {
+    // Netlify Forms: post url-encoded data to the site root.
+    function sendToNetlify(form) {
+      return fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (r) { return r.ok; });
+    }
+
+    function wireForm(id, successMsg) {
       var form = document.getElementById(id);
       var status = form.querySelector('.form-status');
       var button = form.querySelector('button[type=submit]');
@@ -295,7 +304,7 @@
         button.disabled = true;
         status.className = 'form-status';
         status.textContent = 'Sending…';
-        send(form).then(function (ok) {
+        sendToNetlify(form).then(function (ok) {
           if (!ok) throw new Error();
           form.reset();
           status.classList.add('ok');
@@ -309,21 +318,8 @@
       });
     }
 
-    // Netlify Forms: post url-encoded data to the site root.
-    wireForm('contact-form', function (form) {
-      return fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function (r) { return r.ok; });
-    }, 'Thanks! Your message was sent. We\'ll be in touch soon.');
-
-    // MailerLite: JSON response with { success: true } on success.
-    wireForm('signup-form', function (form) {
-      return fetch(form.action, { method: 'POST', body: new FormData(form) })
-        .then(function (r) { return r.json(); })
-        .then(function (data) { return data && data.success; });
-    }, 'Thanks for signing up! Check your inbox to confirm your subscription.');
+    wireForm('contact-form', 'Thanks! Your message was sent. We\'ll be in touch soon.');
+    wireForm('signup-form', 'Thanks for signing up! You\'re on the list.');
   </script>
 </body>
 </html>
